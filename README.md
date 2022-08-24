@@ -4,6 +4,7 @@
 - xmllint
 - xmlstarlet
 - (MacOS `brew install xmlstarlet` gives you both)
+- (Linux/Ubuntu `sudo apt install xmlstarlet libxml2-utils`)
 
 ### Usage
 ```zsh

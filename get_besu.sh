@@ -2,6 +2,13 @@
 # requires xmllint and xmlstarlet
 BESU_RELEASE_ARTIFACTORY='https://hyperledger.jfrog.io/artifactory/besu-binaries/besu'
 
+# deps: ubuntu/linux
+# sudo apt install xmlstarlet
+# sudo apt install libxml2-utils
+
+# deps: macOS
+# brew install xmlstarlet
+
 link_xpath=$(cat << EOF 
 //a[starts-with(@href,
  '$BESU_RELEASE_ARTIFACTORY')
