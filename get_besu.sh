@@ -24,6 +24,15 @@ fetch_release_url () {
         >/dev/null
 }
 
+check_var () {
+if [ -z "$1" ]
+then
+      echo "Could not parse $2"
+      echo "Cancelling..."
+      exit 1
+fi
+}
+
 while read -r id val; do
     if [[ $id == url* ]]; then
         export url=$val
@@ -31,6 +40,9 @@ while read -r id val; do
         export sha256sum=$val
     fi
 done < <(fetch_release_url)
+
+check_var "$url" "release url"
+check_var "$sha256sum" "shasum string"
 
 printf "Hyperledger/Besu Release URL:\n\t%s\n" "$url"
 printf "Checksum:\n\t%s\n" "$sha256sum"
